@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* --- Resume Controls (Buttons) --- */
+.resume-controls {
+    display: flex;
+    gap: 12px;
+    padding: 15px;
+    width: 100%;
+    max-width: 210mm;
+    justify-content: center;
+}
+
+/* --- Resume Container --- */
+.a4-page {
+    width: 210mm;
+    min-height: 297mm;
+    background: white;
+    display: flex;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-bottom: 40px;
+    position: relative;
+    margin-top: 70px;
+}
+
+.sidebar {
+    width: 32%;
+    background-color: #0f172a;
+    color: white;
+    padding: 30px 20px; /* Reduced padding */
+}
+
+.main-content {
+    width: 68%;
+    padding: 35px 35px; /* Reduced padding */
+    background-color: white;
+}
+
+/* --- Headings --- */
+.main-heading {
+    font-size: 16px; /* Slightly smaller */
+    font-weight: 800;
+    color: #0f172a;
+    text-transform: uppercase;
+    border-bottom: 2.5px solid #3b82f6;
+    display: inline-block;
+    margin-bottom: 15px;
+    padding-bottom: 3px;
+    margin-top: 0px;
+}
+
+/* --- Compact Key Projects Cards --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px; /* Reduced gap */
+    margin-top: 5px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 10px 12px; /* Choti padding */
+    border-radius: 6px;
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.project-card h3 {
+    font-size: 14px; /* Chota font */
+    color: #1e293b;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.project-card p {
+    font-size: 12px !important; /* Chota text */
+    line-height: 1.4;
+    color: #475569;
+}
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+    .resume-controls {
+        position: sticky;
+        top: 0;
+        background: #f1f5f9;
+        z-index: 1000;
+        padding: 10px;
+    }
+
+    .a4-page {
+        width: 100% !important;
+        flex-direction: column !important;
+        margin-top: 90px;
+    }
+
+    .sidebar {
+        width: 100% !important;
+        padding: 25px 20px !important;
+        text-align: left;
+    }
+
+    .main-heading {
+        font-size: 18px;
+        text-align: left;
+        display: table;
+        margin-left: 0;
+    }
+
+    .main-content {
+        width: 100% !important;
+        padding: 20px 20px !important;
+        text-align: left;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .project-card {
+        margin-bottom: 8px;
+    }
+}
+
+/* --- Print Settings --- */
+@media print {
+    @page { size: A4; margin-top: -10; }
+    .no-print { display: none !important; }
+    .a4-page {
+        width: 210mm !important;
+        height: 297mm !important;
+        display: flex !important;
+        flex-direction: row !important;
+    }
+    .sidebar { 
+        width: 32% !important; 
+        background-color: #0f172a !important; 
+        -webkit-print-color-adjust: exact; 
+    }
+    .main-content { width: 68% !important; }
+}
+
+
+
+/* Progress Bar Background (Halka color) */
+.p-bg {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.1) !important; /* Halka white background */
+    height: 6px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Progress Bar Fill (Blue color) */
+.p-bar {
+    height: 100%;
+    background-color: #3b82f6 !important; /* Bright Blue */
+    border-radius: 10px;
+    -webkit-print-color-adjust: exact; /* Print ke liye */
+}
+
+
+
+/* @media print {
+    @page { 
+        size: A4; 
+        margin: 0; 
+    }
+
+    
+    .a4-page {
+        height: 297mm !important;
+        overflow: hidden !important; 
+        page-break-after: avoid;
+        page-break-before: avoid;
+    }
+
+    
+    .mb-6 { margin-bottom: 12px !important; }
+    .main-content { padding: 30px 40px !important; }
+    .sidebar { padding: 25px 20px !important; }
+}
+
+
+.main-heading {
+    margin-bottom: 12px !important; 
+}
+
+.project-grid {
+    gap: 8px !important; 
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media print {
+    /* Browser ki default margins ko khatam karne ke liye */
+    @page { 
+        size: A4; 
+        margin: 0 !important; 
+    }
+
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: white;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    /* Resume container ko edge-to-edge karne ke liye */
+    .a4-page {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 210mm !important;
+        height: 297mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+        display: flex !important;
+        flex-direction: row !important;
+    }
+
+    .sidebar {
+        width: 32% !important;
+        height: 297mm !important; /* Sidebar ko poora niche tak khenchne ke liye */
+        background-color: #0f172a !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    .main-content {
+        width: 68% !important;
+        background-color: white !important;
+    }
+
+    /* Buttons aur faltu cheezein hide karne ke liye */
+    .no-print, .resume-controls, #mobile-menu, #menu-btn {
+        display: none !important;
+    }
+}
